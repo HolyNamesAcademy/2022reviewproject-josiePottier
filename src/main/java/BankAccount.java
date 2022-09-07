@@ -18,14 +18,14 @@ public class BankAccount {
      * @return The name of the account owner.
      */
     public String GetName() {
-        System.out.println(name);
+        return (name);
     }
 
     /**
      * @return The current account balance.
      */
     public double GetBalance() {
-        System.out.println(accountBalance);
+        return (accountBalance);
     }
 
     /**
@@ -39,11 +39,12 @@ public class BankAccount {
      * @return The amount deposited into the account. If no money could be deposited due to an error, return zero.
      */
     public double Deposit(double amount) {
-        if(amount <= 0){
+        if (amount <= 0) {
             System.out.println("Sorry, the amount deposited must be greater than 0.");
         } else {
             accountBalance += amount;
         }
+        return amount;
     }
 
     /**
@@ -62,11 +63,9 @@ public class BankAccount {
     public double Withdraw(double amount) {
         if (amount <= 0) {
             System.out.println("Sorry, the amount withdrawn must be greater than 0.");
-        }
-        else if(amount > accountBalance) {
+        } else if (amount > accountBalance) {
             System.out.println("Sorry, you cannot withdraw more than the account balance.");
-        }
-        else {
+        } else {
             accountBalance -= amount;
         }
         return amount;
@@ -86,9 +85,16 @@ public class BankAccount {
      * @return The amount of interest computed. If there is an error, returns zero.
      */
     public double AddInterest(int numYears, double interestRate) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        double x = 0;
+        if (numYears <= 0) {
+            System.out.println("Sorry, the number of years must be an integer greater than 0.");
+        } else if (interestRate <= 0) {
+            System.out.println("Sorry, the interest rate must be greater than 0.");
+        } else {
+            x += accountBalance * numYears * interestRate;
+            accountBalance += x;
+        }
+        return x;
     }
 
     /**
@@ -100,9 +106,7 @@ public class BankAccount {
      * @return String
      */
     public String toString() {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        return ("Name: " + name + "\n" + "Account Balance: " + accountBalance);
     }
 
     /**
