@@ -39,12 +39,14 @@ public class BankAccount {
      * @return The amount deposited into the account. If no money could be deposited due to an error, return zero.
      */
     public double Deposit(double amount) {
+        double x = 0;
         if (amount <= 0) {
             System.out.println("Sorry, the amount deposited must be greater than 0.");
         } else {
-            accountBalance += amount;
+            x = amount;
+            accountBalance += x;
         }
-        return amount;
+        return x;
     }
 
     /**
@@ -61,14 +63,16 @@ public class BankAccount {
      * returns zero.
      */
     public double Withdraw(double amount) {
+        double x = 0;
         if (amount <= 0) {
             System.out.println("Sorry, the amount withdrawn must be greater than 0.");
         } else if (amount > accountBalance) {
             System.out.println("Sorry, you cannot withdraw more than the account balance.");
         } else {
-            accountBalance -= amount;
+            x = amount;
+            accountBalance -= x;
         }
-        return amount;
+        return x;
     }
 
     /**

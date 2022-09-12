@@ -14,7 +14,15 @@ public class ShapeMaker {
      */
     public static String PrintSquare(int size)
     {
-        return "";
+        String squ = "";
+        for(int i = 0; i < size; i ++ ){
+            for(int j = 0; j < size; j ++ ){
+                squ += ("* ");
+            }
+            squ += ("\n");
+        }
+
+        return squ;
     }
 
     /**
@@ -31,8 +39,15 @@ public class ShapeMaker {
      */
     public static String PrintRectangle(int length, int height)
     {
-        // write your code here
-        return "";
+        String rec = "";
+        for(int i = 0; i < height; i ++ ){
+            for(int j = 0; j < length; j ++ ){
+                rec += ("* ");
+            }
+            rec += ("\n");
+        }
+
+        return rec;
     }
 
     /**
@@ -49,8 +64,14 @@ public class ShapeMaker {
      */
     public static String PrintRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String tri = "";
+        for(int i = 1; i <= height; i ++ ){
+            for(int j = 0; j < i; j++){
+                tri += ("* ");
+            }
+            tri += ("\n");
+        }
+        return tri;
     }
 
     /**
@@ -67,8 +88,14 @@ public class ShapeMaker {
      */
     public static String PrintInvertedRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String tri2 = "";
+        for(int i = 0; i < height; i ++ ){
+            for(int j = height; j > i; j--){
+                tri2 += ("* ");
+            }
+            tri2 += ("\n");
+        }
+        return tri2;
     }
 
     /**
@@ -86,9 +113,21 @@ public class ShapeMaker {
 
     public static String PrintBackwardsRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String tri3 = "";
+        for(int i = 0; i < height; i ++ ){
+            for(int j = height; j > i; j--) {
+                for (int x = i; x < i - j; x--) {
+                    tri3 += (" ");
+                }
+                for (int y = j; y < height; y++) {
+                    tri3 += (" *");
+                }
+            }
+                tri3 += ("\n");
+            }
+            return tri3;
     }
+
 
     /**
      * Returns a string that looks like an equilateral triangle with sides of size "size". If size = 5, the triangle looks like this:
