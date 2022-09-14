@@ -116,10 +116,10 @@ public class ShapeMaker {
         String tri3 = "";
         for(int i = 0; i < height; i ++ ){
             for(int j = height; j > i; j--) {
-                for (int x = i; x < i - j; x--) {
+                for (int x = j - 1 - i; x > 0; x--) {
                     tri3 += (" ");
                 }
-                for (int y = j; y < height; y++) {
+                for (int y = i + 1; y > j - height; y--) {
                     tri3 += (" *");
                 }
             }
