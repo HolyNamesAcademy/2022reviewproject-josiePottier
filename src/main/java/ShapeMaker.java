@@ -108,24 +108,24 @@ public class ShapeMaker {
      *     * * * * *
      *
      * @param height the height of the triangle
-     * @return a string that looks like the shape above when printed
+     * @return a string that looks like the shape above when printed 7 5 3 1
      */
 
     public static String PrintBackwardsRightTriangle(int height)
     {
-        String tri3 = "";
-        for(int i = 0; i < height; i ++ ){
-            for(int j = height; j > i; j--) {
-                for (int x = j - 1 - i; x > 0; x--) {
-                    tri3 += (" ");
-                }
-                for (int y = i + 1; y > j - height; y--) {
-                    tri3 += (" *");
-                }
+        String tri4 = "";
+        int space = 2 * height - 3;
+        for(int i = 0; i < height; i ++) {
+            for (int j = 0; j < space; j++) {
+                tri4 += " ";
             }
-                tri3 += ("\n");
+            for (int y = 0; y < i + 1; y++){
+                tri4 += " *";
             }
-            return tri3;
+            tri4 += "\n";
+            space -= 2;
+        }
+        return tri4;
     }
 
 
@@ -138,12 +138,39 @@ public class ShapeMaker {
      *      * * * *
      *     * * * * *
      *
-     * @param height the height of the triangle
+     * @param height the height of the triangle 4
      * @return a string that looks like the shape above when printed
      */
     public static String PrintEquilateralTriangle(int height)
     {
-        // write your code here
-        return "";
+        String tri4 = "";
+        int space = height - 1;
+        for(int i = 0; i < height; i ++) {
+            for (int j = 0; j < space; j++) {
+                tri4 += " ";
+            }
+            for (int y = 0; y < i + 1; y++){
+                tri4 += "* ";
+            }
+            tri4 += "\n";
+            space --;
+        }
+        return tri4;
     }
 }
+/**
+ * Old Code for BackwardsRightTriangle:
+ String tri3 = "";
+ for(int i = 0; i < height; i ++ ){
+ for(int j = height; j > i; j--) {
+ for (int x = j - 1 - i; x > 0; x--) {
+ tri3 += (" ");
+ }
+ for (int y = i + 1; y > j - height; y--) {
+ tri3 += (" *");
+ }
+ }
+ tri3 += ("\n");
+ }
+ return tri3;
+ */
