@@ -114,13 +114,13 @@ public class ShapeMaker {
     public static String PrintBackwardsRightTriangle(int height)
     {
         String tri4 = "";
-        int space = 2 * height - 3;
+        int space = height;
         for(int i = 0; i < height; i ++) {
-            for (int j = 0; j < space; j++) {
-                tri4 += " ";
+            for (int j = 0; j < space; j += 2) {
+                tri4 += "  ";
             }
             for (int y = 0; y < i + 1; y++){
-                tri4 += " *";
+                tri4 += "* ";
             }
             tri4 += "\n";
             space -= 2;

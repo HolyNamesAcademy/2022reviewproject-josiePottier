@@ -9,8 +9,8 @@ public class ArrayListPractice {
      */
     public static int GetFirst(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int x = numbers.get(0);
+        return x;
     }
 
     /**
@@ -21,8 +21,8 @@ public class ArrayListPractice {
      */
     public static int GetThird(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int x = numbers.get(3);
+        return x;
     }
 
     /**
@@ -33,8 +33,10 @@ public class ArrayListPractice {
      */
     public static int GetLast(ArrayList<Integer> numbers) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int s = numbers.size();
+        int x = numbers.get(s - 1);
+        return x;
+
     }
 
     /**
@@ -44,9 +46,11 @@ public class ArrayListPractice {
      * @return The sum of the elements in the list.
      */
     public static int GetSum(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int x = 0;
+        for(int i = 0; i < numbers.size(); i ++){
+            x += numbers.get(i);
+        }
+        return x;
     }
 
     /**
