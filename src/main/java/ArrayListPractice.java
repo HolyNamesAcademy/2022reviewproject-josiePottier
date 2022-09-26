@@ -21,7 +21,7 @@ public class ArrayListPractice {
      */
     public static int GetThird(ArrayList<Integer> numbers) {
 
-        int x = numbers.get(3);
+        int x = numbers.get(2);
         return x;
     }
 
@@ -67,7 +67,8 @@ public class ArrayListPractice {
 String numberList = "";
         for(int i = 0; i <numbers.size() - 1; i++)
             numberList+=numbers.get(i) + " ";
-        numberList+=numbers.get(numbers.size()-1); return numberList;
+        numberList+=numbers.get(numbers.size()-1);
+        return numberList;
     }
 
     /**
@@ -77,9 +78,13 @@ String numberList = "";
      * @return The largest element in the list.
      */
     public static int GetMax(ArrayList<Integer> numbers) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        int large = numbers.get(0);
+        for (int i = 0; i < numbers.size(); i++) {
+            if(numbers.get(i) > large){
+                large = numbers.get(i);
+            }
+        }
+        return large;
     }
 
     /**
@@ -97,9 +102,19 @@ String numberList = "";
      * @return A list of all numbers between first and last.
      */
     public static ArrayList<Integer> CreateNumberArray(int first, int last) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        if (first > last){
+            return nums;
+        }
+        else if (first == last){
+            return nums;
+        }
+        else{
+            for (int i = 0; i < last - first; i++) {
+                nums.add(first + i);
+            }
+        }
+        return nums;
     }
 
     /**
@@ -111,8 +126,12 @@ String numberList = "";
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < students.size(); i++) {
+            if(students.get(i).GetFavoriteColor() == color){
+                return students.get (i);
+            }
+        }
+        return students.get(0);
     }
 
     /**
@@ -123,9 +142,12 @@ String numberList = "";
      * @return The favorite color of the specified student.
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetName() == name) {
+                return students.get(i).GetFavoriteColor();
+            }
+        }
+        return "";
     }
 
     /**
@@ -135,9 +157,15 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        double tallest = students.get(0).GetHeight();
+        int stuNum = 0;
+        for (int i = 0; i < students.size(); i++) {
+            if(students.get(i).GetHeight() > tallest) {
+                tallest = students.get(i).GetHeight();
+                stuNum = i;
+            }
+        }
+       return students.get(stuNum);
     }
 
     /**
@@ -153,9 +181,12 @@ String numberList = "";
      * @return List of Student objects.
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> studs = new ArrayList<Student>();
+        for (int i = 0; i < names.size(); i++) {
+            Student x = new Student(names.get(i), heights.get(i), gradeLevels.get(i), favoriteColors.get(i), bankAccounts.get(i));
+            studs.add(x);
+        }
+        return studs;
     }
 
     /**
