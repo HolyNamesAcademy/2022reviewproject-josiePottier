@@ -158,19 +158,4 @@ public class ShapeMaker {
         return tri4;
     }
 }
-/**
- * Old Code for BackwardsRightTriangle:
- String tri3 = "";
- for(int i = 0; i < height; i ++ ){
- for(int j = height; j > i; j--) {
- for (int x = j - 1 - i; x > 0; x--) {
- tri3 += (" ");
- }
- for (int y = i + 1; y > j - height; y--) {
- tri3 += (" *");
- }
- }
- tri3 += ("\n");
- }
- return tri3;
- */
+
