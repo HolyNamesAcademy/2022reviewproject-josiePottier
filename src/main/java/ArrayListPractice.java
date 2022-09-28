@@ -202,9 +202,18 @@ String numberList = "";
      * @return A string that lists the team number followed by each team.
      */
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        String teamList = "";
+        for (int i = 0; i < teams.size(); i++) {
+            teamList += "Team " + (i + 1) + ": ";
+            for (int j = 0; j < teams.get(i).size(); j++) {
+                teamList += teams.get(i).get(j).GetName();
+                if (j < teams.get(i).size() - 1){
+                    teamList += ", ";
+                }
+            }
+            teamList += "\n";
+        }
+        return teamList;
     }
 
     /**
@@ -216,8 +225,11 @@ String numberList = "";
      */
     public static void UpdateFavoriteColor(ArrayList<Student> students, String name, String newFavoriteColor) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < students.size(); i++) {
+            if(students.get(i).GetName().equals(name)) {
+                students.get(i).SetFavoriteColor(newFavoriteColor);
+            }
+        }
     }
 
     /**
@@ -229,8 +241,13 @@ String numberList = "";
      */
     public static ArrayList<Student> GetStudentsInGradeLevel(ArrayList<Student> students, int gradeLevel) {
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> lvlStus = new ArrayList<Student>();
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetGradeLevel() == gradeLevel) {
+                lvlStus.add(students.get(i));
+            }
+        }
+        return lvlStus;
     }
 
     /**
@@ -244,9 +261,28 @@ String numberList = "";
      *     had sufficient funds in their account. Otherwise, false.
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        double fromStuFunds = 0;
+        double toStuFunds = 0;
+        int fromStu = 0;
+        int toStu = 0;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetName().equals(fromStudentName)) {
+                fromStuFunds += students.get(i).GetBankAccount().GetBalance();
+                fromStu += i;
+            }
+            else if(students.get(i).GetName().equals(toStudentName)){
+                toStuFunds += students.get(i).GetBankAccount().GetBalance();
+                toStu += i;
+            }
+        }
+        if (students.get(fromStu).GetBankAccount().GetBalance() < amount) {
+            return false;
+        }
+        else{
+            students.get(fromStu).GetBankAccount().Withdraw(amount);
+            students.get(toStu).GetBankAccount().Deposit(amount);
+        }
+        return true;
     }
 
     /**
